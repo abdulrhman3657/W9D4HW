@@ -1,88 +1,14 @@
 import Dealer from "../models/dealer.js"
-
-// import Product from '../models/product.model.js';
-import mongoose from 'mongoose';
-
-// export const getProducts = async (req, res) => {
-//     try {
-//         const products = await Product.find({});
-//         res.status(200).json({success: true, data: products})
-//     } catch (error) {
-//         console.log("fetch error:", error);
-//         return res.status(500).json({success: false, message: "server error"})
-//     }
-// }
-
-// export const createProduct = async (req, res) => {
-//     const product = req.body; // user will send this data
-
-//     if(!product.name || !product.price || !product.image) {
-//         return res.status(400).json({success: false, message: "please provide all fields"})
-//     }
-
-//     const newProduct =  await new Product(product);
-
-//     try {
-//         await newProduct.save();
-//         res.status(201).json({success: true, data: newProduct})
-//     } catch (error) {
-//         console.error("Error in create product:", error.message);
-//         res.status(500).json({success: false, message: "server Error"})
-//     }
-
-// }
-
-// export const deleteProduct = async (req, res) => {
-//     const {id} = req.params;
-//     // console.log("id:", id);
-
-//     // console.log(typeof(id)) is a String
-
-//     if (!mongoose.Types.ObjectId.isValid(id)){
-//         return res.status(404).json({success: false, message: "product not found"})
-//     }
- 
-//     try{
-//         await Product.findByIdAndDelete(id);
-//         res.status(200).json({success: true, message: "product deleted"})
-//     } catch (error) {
-//         console.log("delete error:", error);
-//         res.status(500).json({success: false, message: "server error"})
-//     }
-
-// }
-
-// export const updateProduct = async (req, res) => {
-//     const { id }  = req.params;
-    
-//     // console.log(typeof(id))
-
-//     const product = req.body;
-
-//     if (!mongoose.Types.ObjectId.isValid(id)){
-//         return res.status(404).json({success: false, message: "product not found"})
-//     }
-
-//     try{
-//         const updatedProduct = await Product.findByIdAndUpdate(id, product, { new: true });
-//         res.status(200).json({success: true, data: updatedProduct})
-//     } catch (error) {
-//         console.log("update error:", error);
-//         res.status(500).json({success: false, message: "server error"})
-//     }
-
-// }
+import mongoose from "mongoose";
 
 export const createDealer = async (req, res) => {
 
     try {
 
-    const dealer = new Dealer(req.body)
-    await dealer.save();
-
-    console.log(dealer)
-
-    res.status(201).json(dealer)
+        const dealer = new Dealer(req.body)
+        await dealer.save();
+        
+        res.status(201).json(dealer)
         
     } catch (error) {
         console.log(error)
@@ -94,29 +20,72 @@ export const createDealer = async (req, res) => {
 }
 
 export const getDealers = async (req, res) => {
+    try {
 
-    const dealers = await Dealer.find()
-
-    console.log(dealers)
-
-    res.status(200).json(dealers)
-
+        const dealers = await Dealer.find()
+        res.status(200).json(dealers)
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error: error
+        })
+    }
 }
 
+// get dealer by id
 export const getDealer = async (req, res) => {
+    try {
 
+        const { id } = req.params
+        const dealer = await Dealer.findOne({ _id: id })
+        res.status(200).send(dealer)
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error: error
+        })
+    }
 }
 
+// updeate dealer by id
 export const updateDealer = async (req, res) => {
+    try {
 
+        const { id } = req.params
+
+        const dealer = req.body;
+
+        const updatedDealer = await Dealer.findByIdAndUpdate(id, dealer, { new: true });
+
+
+        res.status(200).send(updatedDealer)
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error: error
+        })
+    }
 }
 
 export const deleteDealer = async (req, res) => {
+    try {
 
+        const { id } = req.params
+
+        await Dealer.findByIdAndDelete(id)
+
+        res.status(200).json({message: "dealer deleted successfully"})
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            error: error
+        })
+    }
 }
-
-
-// import { generateToken } from "../lib/utils.js";
 // import User from "../models/user.model.js";
 // import bcrypt from "bcryptjs";
 // import cloudinary from "../lib/cloudinary.js";
