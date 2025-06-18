@@ -115,7 +115,7 @@ export const Get_all_cars_by_carMakeId = async (req, res) => {
     try {
 
         const id = req.params.carMakeId
-        const dealer = await Car.findOne({ dealerId: id })
+        const dealer = await Car.findOne({ carMakeId: id })
         res.status(200).send(dealer)
 
         
