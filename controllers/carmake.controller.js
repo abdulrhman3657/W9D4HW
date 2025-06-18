@@ -1,10 +1,10 @@
-import Dealer from "../models/dealer.js"
+import CarMake from "../models/carmake.js"
 
 export const createDealer = async (req, res) => {
 
     try {
 
-        const dealer = new Dealer(req.body)
+        const dealer = new CarMake(req.body)
         await dealer.save();
 
         res.status(201).json(dealer)
@@ -21,7 +21,7 @@ export const createDealer = async (req, res) => {
 export const getDealers = async (req, res) => {
     try {
 
-        const dealers = await Dealer.find()
+        const dealers = await CarMake.find()
         res.status(200).json(dealers)
         
     } catch (error) {
@@ -37,7 +37,7 @@ export const getDealer = async (req, res) => {
     try {
 
         const { id } = req.params
-        const dealer = await Dealer.findOne({ _id: id })
+        const dealer = await CarMake.findOne({ _id: id })
         res.status(200).send(dealer)
         
     } catch (error) {
@@ -56,7 +56,7 @@ export const updateDealer = async (req, res) => {
 
         const dealer = req.body;
 
-        const updatedDealer = await Dealer.findByIdAndUpdate(id, dealer, { new: true });
+        const updatedDealer = await CarMake.findByIdAndUpdate(id, dealer, { new: true });
 
 
         res.status(200).send(updatedDealer)
@@ -75,7 +75,7 @@ export const deleteDealer = async (req, res) => {
 
         const { id } = req.params
 
-        await Dealer.findByIdAndDelete(id)
+        await CarMake.findByIdAndDelete(id)
 
         res.status(200).json({message: "dealer deleted successfully"})
         

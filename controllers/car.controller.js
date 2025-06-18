@@ -1,4 +1,4 @@
-import Dealer from "../models/dealer.js"
+import Dealer from "../models/car.js"
 
 export const createDealer = async (req, res) => {
 
