@@ -38,6 +38,12 @@ export const getCarMake = async (req, res) => {
 
         const { id } = req.params
         const dealer = await CarMake.findOne({ _id: id })
+
+        if(!dealer){
+            res.status(404).json({error: "car make not found"})
+            return
+        }
+
         res.status(200).send(dealer)
         
     } catch (error) {
@@ -58,6 +64,10 @@ export const updateCarMake = async (req, res) => {
 
         const updatedDealer = await CarMake.findByIdAndUpdate(id, dealer, { new: true });
 
+        if(!updatedDealer){
+            res.status(404).json({error: "car not found"})
+            return
+        }
 
         res.status(200).send(updatedDealer)
         
@@ -75,7 +85,12 @@ export const deleteCarMake = async (req, res) => {
 
         const { id } = req.params
 
-        await CarMake.findByIdAndDelete(id)
+        const carMake = await CarMake.findByIdAndDelete(id)
+
+        if(!carMake){
+            res.status(404).json({error: "car make not found"})
+            return
+        }
 
         res.status(200).json({message: "car make deleted successfully"})
         

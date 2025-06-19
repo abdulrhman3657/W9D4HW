@@ -38,6 +38,12 @@ export const getDealer = async (req, res) => {
 
         const { id } = req.params
         const dealer = await Dealer.findOne({ _id: id })
+
+        if(!dealer){
+            res.status(404).json({error: "dealer not found"})
+            return
+        }
+
         res.status(200).send(dealer)
         
     } catch (error) {
@@ -58,6 +64,10 @@ export const updateDealer = async (req, res) => {
 
         const updatedDealer = await Dealer.findByIdAndUpdate(id, dealer, { new: true });
 
+        if(!updatedDealer){
+            res.status(404).json({error: "dealer not found"})
+            return
+        }
 
         res.status(200).send(updatedDealer)
         
@@ -75,7 +85,12 @@ export const deleteDealer = async (req, res) => {
 
         const { id } = req.params
 
-        await Dealer.findByIdAndDelete(id)
+        const dealer = await Dealer.findByIdAndDelete(id)
+
+        if(!dealer){
+            res.status(404).json({error: "dealer not found"})
+            return
+        }
 
         res.status(200).json({message: "dealer deleted successfully"})
         
