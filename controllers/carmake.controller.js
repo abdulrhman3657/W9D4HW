@@ -32,7 +32,7 @@ export const getCarMakes = async (req, res) => {
     }
 }
 
-// get dealer by id
+// get carmake by id
 export const getCarMake = async (req, res) => {
     try {
 
@@ -48,7 +48,7 @@ export const getCarMake = async (req, res) => {
     }
 }
 
-// updeate dealer by id
+// updeate carmake by id
 export const updateCarMake = async (req, res) => {
     try {
 
@@ -69,7 +69,7 @@ export const updateCarMake = async (req, res) => {
     }
 }
 
-// delete dealer by id
+// delete carmake by id
 export const deleteCarMake = async (req, res) => {
     try {
 

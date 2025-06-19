@@ -4,6 +4,13 @@ export const createCar = async (req, res) => {
 
     try {
 
+        const {dealerId, carMakeId, name, price, year, color, wheelsCount} = req.body
+
+        if(!dealerId || !carMakeId || !name || !price || !year || !color || !wheelsCount){
+            res.status(400).json({error: "all fields are required"})
+            return
+        }
+
         const dealer = new Car(req.body)
         await dealer.save();
 
@@ -38,12 +45,18 @@ export const getCar = async (req, res) => {
 
         const { id } = req.params
         const dealer = await Car.findOne({ _id: id })
-        res.status(200).send(dealer)
+
+        if(!dealer){
+            res.status(404).json({error: "car not found"})
+            return
+        }
+
+        res.status(200).json(dealer)
         
     } catch (error) {
         console.log(error)
         res.status(400).json({
-            error: error
+            error: "failed to find car"
         })
     }
 }
@@ -58,13 +71,17 @@ export const updateCar = async (req, res) => {
 
         const updatedDealer = await Car.findByIdAndUpdate(id, dealer, { new: true });
 
+        if(!updatedDealer){
+            res.status(404).json({error: "car not found"})
+            return
+        }
 
         res.status(200).send(updatedDealer)
         
     } catch (error) {
         console.log(error)
         res.status(400).json({
-            error: error
+            error: "failed to update car"
         })
     }
 }
@@ -75,14 +92,19 @@ export const deleteCar = async (req, res) => {
 
         const { id } = req.params
 
-        await Car.findByIdAndDelete(id)
+        const car = await Car.findByIdAndDelete(id)
+
+        if(!car){
+            res.status(404).json({error: "car not found"})
+            return
+        }
 
         res.status(200).json({message: "car deleted successfully"})
         
     } catch (error) {
         console.log(error)
         res.status(400).json({
-            error: error
+            error: "failed to delete car"
         })
     }
 }
@@ -91,15 +113,14 @@ export const deleteCar = async (req, res) => {
 export const Get_all_cars_by_dealerId = async (req, res) => {
     try {
 
-        // const { id } = req.params.dealerID
         const id = req.params.dealerID
-
-
-        console.log(id)
 
         const dealer = await Car.findOne({ dealerId: id })
 
-        console.log(dealer)
+        if(!dealer){
+            res.status(404).json({error: "cars not found"})
+            return
+        }
 
         res.status(200).send(dealer)
     } catch (error) {
@@ -116,8 +137,13 @@ export const Get_all_cars_by_carMakeId = async (req, res) => {
 
         const id = req.params.carMakeId
         const dealer = await Car.findOne({ carMakeId: id })
-        res.status(200).send(dealer)
 
+        if(!dealer){
+            res.status(404).json({error: "cars not found"})
+            return
+        }
+
+        res.status(200).send(dealer)
         
     } catch (error) {
         console.log(error)
