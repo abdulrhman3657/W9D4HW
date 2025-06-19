@@ -1,12 +1,12 @@
 import express from "express";
-import { createDealer, deleteDealer, getDealer, getDealers, updateDealer } from "../controllers/carmake.controller.js"
+import { createCarMake, deleteCarMake, getCarMake, getCarMakes, updateCarMake } from "../controllers/carmake.controller.js"
 
 const router = express.Router();
 
-router.get("/", getDealers)
-router.post("/", createDealer)
-router.get("/:id", getDealer)
-router.put("/:id", updateDealer)
-router.delete("/:id", deleteDealer)
+router.get("/", getCarMakes)
+router.post("/", createCarMake)
+router.get("/:id", getCarMake)
+router.put("/:id", updateCarMake)
+router.delete("/:id", deleteCarMake)
 
 export default router;

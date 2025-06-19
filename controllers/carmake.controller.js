@@ -1,6 +1,6 @@
 import CarMake from "../models/carmake.js"
 
-export const createDealer = async (req, res) => {
+export const createCarMake = async (req, res) => {
 
     try {
 
@@ -18,7 +18,7 @@ export const createDealer = async (req, res) => {
 
 }
 
-export const getDealers = async (req, res) => {
+export const getCarMakes = async (req, res) => {
     try {
 
         const dealers = await CarMake.find()
@@ -33,7 +33,7 @@ export const getDealers = async (req, res) => {
 }
 
 // get dealer by id
-export const getDealer = async (req, res) => {
+export const getCarMake = async (req, res) => {
     try {
 
         const { id } = req.params
@@ -49,7 +49,7 @@ export const getDealer = async (req, res) => {
 }
 
 // updeate dealer by id
-export const updateDealer = async (req, res) => {
+export const updateCarMake = async (req, res) => {
     try {
 
         const { id } = req.params
@@ -70,14 +70,14 @@ export const updateDealer = async (req, res) => {
 }
 
 // delete dealer by id
-export const deleteDealer = async (req, res) => {
+export const deleteCarMake = async (req, res) => {
     try {
 
         const { id } = req.params
 
         await CarMake.findByIdAndDelete(id)
 
-        res.status(200).json({message: "dealer deleted successfully"})
+        res.status(200).json({message: "car make deleted successfully"})
         
     } catch (error) {
         console.log(error)

@@ -1,6 +1,6 @@
 import Car from "../models/car.js"
 
-export const createDealer = async (req, res) => {
+export const createCar = async (req, res) => {
 
     try {
 
@@ -18,7 +18,7 @@ export const createDealer = async (req, res) => {
 
 }
 
-export const getDealers = async (req, res) => {
+export const getCars = async (req, res) => {
     try {
 
         const dealers = await Car.find()
@@ -32,8 +32,8 @@ export const getDealers = async (req, res) => {
     }
 }
 
-// get dealer by id
-export const getDealer = async (req, res) => {
+// get car by id
+export const getCar = async (req, res) => {
     try {
 
         const { id } = req.params
@@ -48,8 +48,8 @@ export const getDealer = async (req, res) => {
     }
 }
 
-// updeate dealer by id
-export const updateDealer = async (req, res) => {
+// updeate car by id
+export const updateCar = async (req, res) => {
     try {
 
         const { id } = req.params
@@ -69,15 +69,15 @@ export const updateDealer = async (req, res) => {
     }
 }
 
-// delete dealer by id
-export const deleteDealer = async (req, res) => {
+// delete car by id
+export const deleteCar = async (req, res) => {
     try {
 
         const { id } = req.params
 
         await Car.findByIdAndDelete(id)
 
-        res.status(200).json({message: "dealer deleted successfully"})
+        res.status(200).json({message: "car deleted successfully"})
         
     } catch (error) {
         console.log(error)
