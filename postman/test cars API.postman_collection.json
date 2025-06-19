@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "d0df6ca9-69f4-4120-ab1f-700995bcfef0",
+		"name": "test cars API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41103381",
+		"_collection_link": "https://myteam-1317.postman.co/workspace/chat-app-test~1ac5562d-39b6-4e61-aaec-df1179b74fc8/collection/41103381-d0df6ca9-69f4-4120-ab1f-700995bcfef0?action=share&source=collection_link&creator=41103381"
+	},
+	"item": [
+		{
+			"name": "dealers",
+			"item": [
+				{
+					"name": "get all dealers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/dealers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"dealers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get dealer by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/dealers/6852e443d053c8b61034358f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"dealers",
+								"6852e443d053c8b61034358f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update dealer by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"user300\",\r\n  \"email\": \"user3001.example.com\",\r\n  \"city\": \"user300city 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/dealers/6852e443d053c8b61034358f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"dealers",
+								"6852e443d053c8b61034358f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete dealer by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"user2\",\r\n  \"email\": \"user1.example.com\",\r\n  \"city\": \"user city 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/dealers/6852e443d053c8b61034358f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"dealers",
+								"6852e443d053c8b61034358f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post new dealer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"user200\",\r\n  \"email\": \"user200\",\r\n  \"city\": \"user200\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/dealers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"dealers",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "car makes",
+			"item": [
+				{
+					"name": "get all car makes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/carmake",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carmake"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  carmake by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/carmake/6852fa014da217ba024ad26f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carmake",
+								"6852fa014da217ba024ad26f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update carmake by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"country\": \"country2\",\r\n  \"brand\": \"brand2\",\r\n  \"city\": \"city 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/carmake/6852fa014da217ba024ad26f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carmake",
+								"6852fa014da217ba024ad26f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete carmake by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"user2\",\r\n  \"email\": \"user1.example.com\",\r\n  \"city\": \"user city 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/carmake/6852fa014da217ba024ad26f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carmake",
+								"6852fa014da217ba024ad26f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post new carmake",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"country\": \"country1\",\r\n  \"brand\": \"brand\",\r\n  \"city\": \"city 1\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/carmake",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"carmake"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cars",
+			"item": [
+				{
+					"name": "get all cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  car by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car/6852fbf9f2db4888bcdf161b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"6852fbf9f2db4888bcdf161b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update car by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dealerId\": \"car1\",\r\n  \"carMakeId\": \"car1\",\r\n  \"name\": \"car1\",\r\n  \"price\": \"car1\",\r\n  \"year\": \"car1\",\r\n  \"color\": \"car1\",\r\n  \"wheelsCount\": \"car1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/car/6852fbf9f2db4888bcdf161b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"6852fbf9f2db4888bcdf161b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete car by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"user2\",\r\n  \"email\": \"user1.example.com\",\r\n  \"city\": \"user city 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/car/6852ff0ba74d14bdc3b95187",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"6852ff0ba74d14bdc3b95187"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post new car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dealerId\": \"000\",\r\n  \"carMakeId\": \"111\",\r\n  \"name\": \"name4\",\r\n  \"price\": \"400\",\r\n  \"year\": \"2020\",\r\n  \"color\": \"red\",\r\n  \"wheelsCount\": \"4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/car",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all cars by dealerId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car/dealer/0129",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"dealer",
+								"0129"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all cars by carMakeId Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/car/carmake/111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"car",
+								"carmake",
+								"111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
